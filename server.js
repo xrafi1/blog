@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const multer = require('multer');
+const session = require('express-session');
 const path = require('path');
 const app = express();
 
@@ -28,9 +29,42 @@ const upload = multer({ storage });
 // Middleware
 app.use(express.static('public'));
 app.use(express.json());
+app.use(session({
+  secret: 'your-secret-key',
+  resave: false,
+  saveUninitialized: false
+}));
+
+// Authentication middleware
+const requireAuth = (req, res, next) => {
+  if (req.session.user) {
+    next();
+  } else {
+    res.status(401).json({ authenticated: false });
+  }
+};
 
 // API routes
-app.get('/api/posts', async (req, res) => {
+app.get('/api/auth/check', (req, res) => {
+  res.json({ authenticated: !!req.session.user });
+});
+
+app.post('/api/auth/login', (req, res) => {
+  const { username, password } = req.body;
+  if (username === 'xrafi' && password === 'rafiur@@') {
+    req.session.user = { username };
+    res.json({ success: true });
+  } else {
+    res.status(401).json({ success: false });
+  }
+});
+
+app.get('/api/auth/logout', (req, res) => {
+  req.session.destroy();
+  res.redirect('/admin');
+});
+
+app.get('/api/posts', requireAuth, async (req, res) => {
   const posts = await Post.find();
   res.json(posts);
 });
@@ -40,7 +74,7 @@ app.get('/api/posts/:id', async (req, res) => {
   res.json(post);
 });
 
-app.post('/api/posts', upload.single('image'), async (req, res) => {
+app.post('/api/posts', requireAuth, upload.single('image'), async (req, res) => {
   const post = new Post({
     title: req.body.title,
     content: req.body.content,
@@ -50,7 +84,7 @@ app.post('/api/posts', upload.single('image'), async (req, res) => {
   res.json(post);
 });
 
-app.delete('/api/posts/:id', async (req, res) => {
+app.delete('/api/posts/:id', requireAuth, async (req, res) => {
   await Post.findByIdAndDelete(req.params.id);
   res.json({ message: 'Post deleted' });
 });
