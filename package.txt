@@ -1,0 +1,14 @@
+{
+  "name": "stylish-blog",
+  "version": "1.0.0",
+  "description": "A stylish blog website with admin panel",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.0.12",
+    "multer": "^1.4.3"
+  }
+}
