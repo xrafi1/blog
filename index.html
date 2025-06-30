@@ -1,271 +1,615 @@
-                            <article class="skill-card p-6 rounded-xl">
-                                <span class="skill-icon">⚡</span>
-                                <p class="text-lg font-semibold">JavaScript</p>
-                                <span class="text-sm text-gray-400 mt-1">Advanced</span>
-                            </article>
-                            <article class="skill-card p-6 rounded-xl">
-                                <span class="skill-icon">🔵</span>
-                                <p class="text-lg font-semibold">React</p>
-                                <span class="text-sm text-gray-400 mt-1">Advanced</span>
-                            </article>
-                            <article class="skill-card p-6 rounded-xl">
-                                <span class="skill-icon">📱</span>
-                                <p class="text-lg font-semibold">React Native</p>
-                                <span class="text-sm text-gray-400 mt-1">Intermediate</span>
-                            </article>
-                            <article class="skill-card p-6 rounded-xl">
-                                <span class="skill-icon">💨</span>
-                                <p class="text-lg font-semibold">Tailwind CSS</p>
-                                <span class="text-sm text-gray-400 mt-1">Expert</span>
-                            </article>
-                            <article class="skill-card p-6 rounded-xl">
-                                <span class="skill-icon">📊</span>
-                                <p class="text-lg font-semibold">Redux</p>
-                                <span class="text-sm text-gray-400 mt-1">Intermediate</span>
-                            </article>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rafi | Web Developer & Designer | Silicon Valley</title>
+    <meta name="description" content="Innovative web developer creating digital experiences with cutting-edge technologies. Based in Silicon Valley.">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Rafi | Web Developer Portfolio">
+    <meta property="og:description" content="Crafting the future with code. Web developer specializing in modern web technologies.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rafi.dev">
+    <meta property="og:image" content="https://rafi.dev/social-preview.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://i.ibb.co/wFLSmtKN/Picsart-25-06-20-18-18-20-681.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#6366f1',
+                            dark: '#4f46e5'
+                        },
+                        dark: {
+                            DEFAULT: '#0f172a',
+                            light: '#1e293b'
+                        },
+                        light: '#f8fafc'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Space Grotesk', 'sans-serif']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                        'slide-up': 'slideUp 0.8s ease-out forwards'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: #020617;
+            color: #f8fafc;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .card-glass {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .skill-pill {
+            transition: all 0.3s ease;
+        }
+        
+        .skill-pill:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3);
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+        
+        .project-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.2);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #6366f1, #a855f7);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu {
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+            }
+            
+            .mobile-menu.active {
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Navigation -->
+    <header class="fixed w-full z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold font-heading gradient-text">Rafi.</a>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="#contact" class="px-4 py-2 bg-primary rounded-lg font-medium hover:bg-primary-dark transition">Hire Me</a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden hamburger flex flex-col justify-center items-center" id="menu-btn">
+                <span class="bg-light block w-6 h-0.5 mb-1.5 transition-all"></span>
+                <span class="bg-light block w-6 h-0.5 mb-1.5 transition-all"></span>
+                <span class="bg-light block w-6 h-0.5 transition-all"></span>
+            </button>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden mobile-menu fixed inset-0 bg-dark pt-24 px-6" id="mobile-menu">
+            <div class="flex flex-col space-y-6">
+                <a href="#home" class="text-xl py-2 border-b border-gray-800">Home</a>
+                <a href="#about" class="text-xl py-2 border-b border-gray-800">About</a>
+                <a href="#skills" class="text-xl py-2 border-b border-gray-800">Skills</a>
+                <a href="#projects" class="text-xl py-2 border-b border-gray-800">Projects</a>
+                <a href="#contact" class="text-xl py-2 border-b border-gray-800">Contact</a>
+                <a href="#contact" class="px-4 py-3 bg-primary rounded-lg font-medium text-center mt-4 hover:bg-primary-dark transition">Hire Me</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-16">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-12 md:mb-0">
+                    <h1 class="text-4xl md:text-6xl font-bold font-heading mb-6 leading-tight">
+                        <span class="gradient-text">Crafting Digital</span><br>
+                        <span>Experiences That</span><br>
+                        <span class="gradient-text">Inspire</span>
+                    </h1>
+                    <p class="text-lg text-gray-400 mb-8 max-w-lg">
+                        I'm Rafi, a web developer based in Silicon Valley, passionate about building innovative digital solutions that make an impact.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#projects" class="px-6 py-3 bg-primary rounded-lg font-medium hover:bg-primary-dark transition">View Work</a>
+                        <a href="#contact" class="px-6 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-primary hover:bg-opacity-10 transition">Contact Me</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-primary to-purple-500 flex items-center justify-center animation-float">
+                        <div class="absolute inset-0 rounded-full bg-primary opacity-20 blur-xl"></div>
+                        <div class="relative z-10 text-8xl">👨‍💻</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-dark">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0 md:pr-12">
+                    <h2 class="text-3xl font-bold font-heading mb-6">
+                        <span class="gradient-text">About</span> Me
+                    </h2>
+                    <p class="text-gray-400 mb-6">
+                        Hello! I'm Rafi, a passionate web developer currently pursuing my B.Tech while working on exciting projects in Silicon Valley.
+                    </p>
+                    <p class="text-gray-400 mb-6">
+                        Originally from India, I've always been fascinated by how technology can transform ideas into reality. My journey in web development started when I built my first website at 16, and I've been hooked ever since.
+                    </p>
+                    <p class="text-gray-400 mb-8">
+                        When I'm not coding, you can find me exploring new coffee shops, reading tech blogs, or brainstorming my next big project.
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
+                            <span class="text-xl">🎓</span>
+                        </div>
+                        <div>
+                            <h4 class="font-medium">B.Tech Student</h4>
+                            <p class="text-sm text-gray-400">Computer Science</p>
                         </div>
                     </div>
-                    
-                    <!-- Backend Skills -->
-                    <div class="animate__animated animate__fadeIn">
-                        <h3 class="text-2xl md:text-3xl font-bold mb-8 text-center gradient-text">🔧 Backend Skills</h3>
-                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                            <article class="skill-card p-6 rounded-xl">
-                                <span class="skill-icon">🟢</span>
-                                <p class="text-lg font-semibold">Node.js</p>
-                                <span class="text-sm text-gray-400 mt-1">Advanced</span>
-                            </article>
-                            <article class="skill-card p-6 rounded-xl">
-                                <span class="skill-icon">⚛️</span>
-                                <p class="text-lg font-semibold">Express</p>
-                                <span class="text-sm text-gray-400 mt-1">Advanced</span>
-                            </article>
-                            <article class="skill-card p-6 rounded-xl">
-                                <span class="skill-icon">🗃️</span>
-                                <p class="text-lg font-semibold">MongoDB</p>
-                                <span class="text-sm text-gray-400 mt-1">Intermediate</span>
-                            </article>
-                            <article class="skill-card p-6 rounded-xl">
-                                <span class="skill-icon">🐘</span>
-                                <p class="text-lg font-semibold">PostgreSQL</p>
-                                <span class="text-sm text-gray-400 mt-1">Intermediate</span>
-                            </article>
-                            <article class="skill-card p-6 rounded-xl">
-                                <span class="skill-icon">🔥</span>
-                                <p class="text-lg font-semibold">Firebase</p>
-                                <span class="text-sm text-gray-400 mt-1">Intermediate</span>
-                            </article>
-                            <article class="skill-card p-6 rounded-xl">
-                                <span class="skill-icon">☁️</span>
-                                <p class="text-lg font-semibold">REST APIs</p>
-                                <span class="text-sm text-gray-400 mt-1">Advanced</span>
-                            </article>
+                </div>
+                <div class="md:w-1/2 grid grid-cols-2 gap-4">
+                    <div class="card-glass p-6 rounded-xl animation-fade-in" style="animation-delay: 0.1s;">
+                        <div class="text-4xl mb-4 gradient-text">3+</div>
+                        <h3 class="font-medium mb-2">Years Experience</h3>
+                        <p class="text-sm text-gray-400">Building web applications</p>
+                    </div>
+                    <div class="card-glass p-6 rounded-xl animation-fade-in" style="animation-delay: 0.2s;">
+                        <div class="text-4xl mb-4 gradient-text">20+</div>
+                        <h3 class="font-medium mb-2">Projects</h3>
+                        <p class="text-sm text-gray-400">Completed successfully</p>
+                    </div>
+                    <div class="card-glass p-6 rounded-xl animation-fade-in" style="animation-delay: 0.3s;">
+                        <div class="text-4xl mb-4 gradient-text">100%</div>
+                        <h3 class="font-medium mb-2">Passion</h3>
+                        <p class="text-sm text-gray-400">For technology & innovation</p>
+                    </div>
+                    <div class="card-glass p-6 rounded-xl animation-fade-in" style="animation-delay: 0.4s;">
+                        <div class="text-4xl mb-4 gradient-text">24/7</div>
+                        <h3 class="font-medium mb-2">Coffee Mode</h3>
+                        <p class="text-sm text-gray-400">Always brewing ideas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold font-heading mb-4">
+                    My <span class="gradient-text">Skills</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    I've worked with a wide range of technologies in web development. Here are some of my core competencies.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Frontend Skills -->
+                <div class="card-glass p-8 rounded-xl">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 rounded-full bg-primary bg-opacity-20 flex items-center justify-center mr-4">
+                            <span class="text-primary">🖥️</span>
+                        </div>
+                        <h3 class="text-xl font-heading font-medium">Frontend Development</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
+                            <span class="mr-2">⚛️</span> React
+                        </div>
+                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
+                            <span class="mr-2">🌿</span> Vue.js
+                        </div>
+                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
+                            <span class="mr-2">📄</span> HTML5
+                        </div>
+                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
+                            <span class="mr-2">🎨</span> CSS3
+                        </div>
+                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
+                            <span class="mr-2">⚡</span> JavaScript
+                        </div>
+                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
+                            <span class="mr-2">💅</span> Tailwind CSS
+                        </div>
+                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
+                            <span class="mr-2">📦</span> Bootstrap
+                        </div>
+                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
+                            <span class="mr-2">🅰️</span> Angular
                         </div>
                     </div>
-                    
-                    <!-- Tools & Other -->
-                    <div class="animate__animated animate__fadeIn">
-                        <h3 class="text-2xl md:text-3xl font-bold mb-8 text-center gradient-text">🛠️ Tools & Others</h3>
-                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                            <article class="skill-card p-6 rounded-xl">
-                                <span class="skill-icon">📦</span>
-                                <p class="text-lg font-semibold">Git</p>
-                                <span class="text-sm text-gray-400 mt-1">Advanced</span>
-                            </article>
-                            <article class="skill-card p-6 rounded-xl">
-                                <span class="skill-icon">🐙</span>
-                                <p class="text-lg font-semibold">GitHub</p>
-                                <span class="text-sm text-gray-400 mt-1">Advanced</span>
-                            </article>
-                            <article class="skill-card p-6 rounded-xl">
-                                <span class="skill-icon">🔄</span>
-                                <p class="text-lg font-semibold">CI/CD</p>
-                                <span class="text-sm text-gray-400 mt-1">Intermediate</span>
-                            </article>
-                            <article class="skill-card p-6 rounded-xl">
-                                <span class="skill-icon">🖥️</span>
-                                <p class="text-lg font-semibold">VS Code</p>
-                                <span class="text-sm text-gray-400 mt-1">Expert</span>
-                            </article>
-                            <article class="skill-card p-6 rounded-xl">
-                                <span class="skill-icon">🎯</span>
-                                <p class="text-lg font-semibold">Figma</p>
-                                <span class="text-sm text-gray-400 mt-1">Intermediate</span>
-                            </article>
-                            <article class="skill-card p-6 rounded-xl">
-                                <span class="skill-icon">🚀</span>
-                                <p class="text-lg font-semibold">Vercel</p>
-                                <span class="text-sm text-gray-400 mt-1">Intermediate</span>
-                            </article>
+                </div>
+                
+                <!-- Backend Skills -->
+                <div class="card-glass p-8 rounded-xl">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 rounded-full bg-primary bg-opacity-20 flex items-center justify-center mr-4">
+                            <span class="text-primary">⚙️</span>
+                        </div>
+                        <h3 class="text-xl font-heading font-medium">Backend Development</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
+                            <span class="mr-2">🖥️</span> Node.js
+                        </div>
+                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
+                            <span class="mr-2">🚀</span> Express.js
+                        </div>
+                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
+                            <span class="mr-2">🐍</span> Python
+                        </div>
+                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
+                            <span class="mr-2">🐘</span> PHP
+                        </div>
+                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
+                            <span class="mr-2">🗄️</span> MySQL
+                        </div>
+                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
+                            <span class="mr-2">🍃</span> MongoDB
+                        </div>
+                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
+                            <span class="mr-2">🔥</span> Firebase
+                        </div>
+                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
+                            <span class="mr-2">☕</span> Java
+                        </div>
+                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
+                            <span class="mr-2">💎</span> Ruby on Rails
+                        </div>
+                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
+                            <span class="mr-2">🐘</span> PostgreSQL
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="section relative">
-            <div class="container mx-auto px-4">
-                <h2 class="text-4xl md:text-6xl font-extrabold mb-16 text-center gradient-text animate__animated">My Projects</h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Project 1 -->
-                    <article class="project-card rounded-xl overflow-hidden animate__animated animate__fadeIn">
-                        <div class="relative h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" 
-                                 alt="E-commerce Dashboard" 
-                                 class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold font-heading mb-4">
+                    Featured <span class="gradient-text">Projects</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Here are some of my recent projects that showcase my skills and creativity.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card card-glass rounded-xl overflow-hidden animation-slide-up" style="animation-delay: 0.1s;">
+                    <div class="h-48 bg-gradient-to-r from-primary to-purple-600 flex items-center justify-center">
+                        <span class="text-6xl">📚</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-heading font-medium mb-2">Edumark</h3>
+                        <p class="text-gray-400 mb-4">
+                            A dynamic platform revolutionizing education with interactive tools and resources.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs px-2 py-1 bg-dark-light rounded">React</span>
+                            <span class="text-xs px-2 py-1 bg-dark-light rounded">Node.js</span>
+                            <span class="text-xs px-2 py-1 bg-dark-light rounded">MongoDB</span>
                         </div>
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold mb-2">E-commerce Dashboard</h3>
-                            <p class="text-gray-300 mb-4">A comprehensive admin dashboard for e-commerce businesses with real-time analytics and inventory management.</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">React</span>
-                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">Node.js</span>
-                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">MongoDB</span>
-                            </div>
-                            <div class="flex gap-4">
-                                <a href="#" class="btn-primary px-4 py-2 rounded-full text-sm">Live Demo</a>
-                                <a href="#" class="px-4 py-2 rounded-full text-sm border border-gray-600 hover:border-cyan-400 hover:text-cyan-400 transition">Code</a>
-                            </div>
+                        <a href="#" class="text-primary font-medium hover:underline">View Project →</a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card card-glass rounded-xl overflow-hidden animation-slide-up" style="animation-delay: 0.2s;">
+                    <div class="h-48 bg-gradient-to-r from-pink-500 to-rose-500 flex items-center justify-center">
+                        <span class="text-6xl">🔥</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-heading font-medium mb-2">Hotface.site</h3>
+                        <p class="text-gray-400 mb-4">
+                            A sleek social platform connecting people through shared passions.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs px-2 py-1 bg-dark-light rounded">Vue.js</span>
+                            <span class="text-xs px-2 py-1 bg-dark-light rounded">Firebase</span>
+                            <span class="text-xs px-2 py-1 bg-dark-light rounded">Tailwind CSS</span>
                         </div>
-                    </article>
-                    
-                    <!-- Project 2 -->
-                    <article class="project-card rounded-xl overflow-hidden animate__animated animate__fadeIn animate__delay-1s">
-                        <div class="relative h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" 
-                                 alt="Task Management App" 
-                                 class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <a href="https://www.hotface.site" target="_blank" class="text-primary font-medium hover:underline">Visit Site →</a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card card-glass rounded-xl overflow-hidden animation-slide-up" style="animation-delay: 0.3s;">
+                    <div class="h-48 bg-gradient-to-r from-amber-500 to-pink-500 flex items-center justify-center">
+                        <span class="text-6xl">🛍️</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-heading font-medium mb-2">Stylx.shop</h3>
+                        <p class="text-gray-400 mb-4">
+                            A modern e-commerce platform for trendy fashion and seamless shopping.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs px-2 py-1 bg-dark-light rounded">Next.js</span>
+                            <span class="text-xs px-2 py-1 bg-dark-light rounded">Stripe</span>
+                            <span class="text-xs px-2 py-1 bg-dark-light rounded">PostgreSQL</span>
                         </div>
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold mb-2">TaskFlow Pro</h3>
-                            <p class="text-gray-300 mb-4">A productivity app with kanban boards, time tracking, and team collaboration features.</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">React</span>
-                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">Firebase</span>
-                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">Tailwind</span>
-                            </div>
-                            <div class="flex gap-4">
-                                <a href="#" class="btn-primary px-4 py-2 rounded-full text-sm">Live Demo</a>
-                                <a href="#" class="px-4 py-2 rounded-full text-sm border border-gray-600 hover:border-cyan-400 hover:text-cyan-400 transition">Code</a>
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <!-- Project 3 -->
-                    <article class="project-card rounded-xl overflow-hidden animate__animated animate__fadeIn animate__delay-2s">
-                        <div class="relative h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" 
-                                 alt="Social Media Analytics" 
-                                 class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold mb-2">Social Insights</h3>
-                            <p class="text-gray-300 mb-4">Analytics platform that aggregates data from multiple social networks into actionable insights.</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">Next.js</span>
-                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">Python</span>
-                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">D3.js</span>
-                            </div>
-                            <div class="flex gap-4">
-                                <a href="#" class="btn-primary px-4 py-2 rounded-full text-sm">Live Demo</a>
-                                <a href="#" class="px-4 py-2 rounded-full text-sm border border-gray-600 hover:border-cyan-400 hover:text-cyan-400 transition">Code</a>
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <!-- Project 4 -->
-                    <article class="project-card rounded-xl overflow-hidden animate__animated animate__fadeIn">
-                        <div class="relative h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" 
-                                 alt="AI Image Generator" 
-                                 class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold mb-2">AI Art Studio</h3>
-                            <p class="text-gray-300 mb-4">Generate unique artwork with AI and customize it with various artistic styles and parameters.</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">React</span>
-                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">Node.js</span>
-                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">TensorFlow</span>
-                            </div>
-                            <div class="flex gap-4">
-                                <a href="#" class="btn-primary px-4 py-2 rounded-full text-sm">Live Demo</a>
-                                <a href="#" class="px-4 py-2 rounded-full text-sm border border-gray-600 hover:border-cyan-400 hover:text-cyan-400 transition">Code</a>
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <!-- Project 5 -->
-                    <article class="project-card rounded-xl overflow-hidden animate__animated animate__fadeIn animate__delay-1s">
-                        <div class="relative h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" 
-                                 alt="Fitness Tracker" 
-                                 class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold mb-2">FitTrack 360</h3>
-                            <p class="text-gray-300 mb-4">Comprehensive fitness tracking app with workout plans, nutrition logging, and progress analytics.</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">React Native</span>
-                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">Firebase</span>
-                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">HealthKit</span>
-                            </div>
-                            <div class="flex gap-4">
-                                <a href="#" class="btn-primary px-4 py-2 rounded-full text-sm">Live Demo</a>
-                                <a href="#" class="px-4 py-2 rounded-full text-sm border border-gray-600 hover:border-cyan-400 hover:text-cyan-400 transition">Code</a>
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <!-- Project 6 -->
-                    <article class="project-card rounded-xl overflow-hidden animate__animated animate__fadeIn animate__delay-2s">
-                        <div class="relative h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" 
-                                 alt="Blockchain Explorer" 
-                                 class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold mb-2">BlockScan</h3>
-                            <p class="text-gray-300 mb-4">Real-time blockchain explorer with transaction visualization and wallet tracking.</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">Web3.js</span>
-                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">Ethereum</span>
-                                <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">Solidity</span>
-                            </div>
-                            <div class="flex gap-4">
-                                <a href="#" class="btn-primary px-4 py-2 rounded-full text-sm">Live Demo</a>
-                                <a href="#" class="px-4 py-2 rounded-full text-sm border border-gray-600 hover:border-cyan-400 hover:text-cyan-400 transition">Code</a>
-                            </div>
-                        </div>
-                    </article>
+                        <a href="https://www.stylx.shop" target="_blank" class="text-primary font-medium hover:underline">Visit Site →</a>
+                    </div>
                 </div>
             </div>
-        </section>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block px-6 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-primary hover:bg-opacity-10 transition">
+                    View All Projects
+                </a>
+            </div>
+        </div>
+    </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="section relative">
-            <div class="container mx-auto px-4">
-                <h2 class="text-4xl md:text-6xl font-extrabold mb-16 text-center gradient-text animate__animated">Get In Touch</h2>
-                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
-                    <div class="animate__animated animate__fadeInLeft">
-                        <h3 class="text-2xl font-bold mb-6 gradient-text">Let's Connect</h3>
-                        <p class="text-lg mb-8 text-gray-300">I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.</p>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="text-3xl font-bold font-heading mb-4">
+                    Let's <span class="gradient-text">Connect</span>
+                </h2>
+                <p class="text-gray-400">
+                    Have a project in mind or want to discuss potential opportunities? I'd love to hear from you!
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="card-glass p-8 rounded-xl">
+                    <h3 class="text-xl font-heading font-medium mb-6">Get in Touch</h3>
+                    <form>
+                        <div class="mb-4">
+                            <label for="name" class="block text-sm font-medium mb-2">Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 bg-dark-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-sm font-medium mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 bg-dark-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-sm font-medium mb-2">Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-3 bg-dark-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+                        </div>
+                        <button type="submit" class="w-full px-6 py-3 bg-primary rounded-lg font-medium hover:bg-primary-dark transition">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="card-glass p-8 rounded-xl">
+                    <h3 class="text-xl font-heading font-medium mb-6">Contact Info</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-primary bg-opacity-20 flex items-center justify-center mr-4 mt-1">
+                                <span class="text-primary">✉️</span>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Email</h4>
+                                <a href="mailto:heyxrafi@hotmail.com" class="text-gray-400 hover:text-primary transition">heyxrafi@hotmail.com</a>
+                            </div>
+                        </div>
                         
-                        <div class="space-y-4">
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-full gradient-bg flex items-center justify-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-dark">
-                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                        <polyline points="22,6 12,13 2,6"></polyline>
-                                    </svg>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-primary bg-opacity-20 flex items-center justify-center mr-4 mt-1">
+                                <span class="text-primary">🎥</span>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Google Meet</h4>
+                                <a href="https://meet.google.com/kmf-urro-dpv" target="_blank" class="text-gray-400 hover:text-primary transition">meet.google.com/kmf-urro-dpv</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-primary bg-opacity-20 flex items-center justify-center mr-4 mt-1">
+                                <span class="text-primary">🌐</span>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Social</h4>
+                                <div class="flex space-x-4 mt-2">
+                                    <a href="https://linkedin.com/in/rafi" target="_blank" class="text-gray-400 hover:text-primary transition">LinkedIn</a>
+                                    <a href="https://x.com/rafi" target="_blank" class="text-gray-400 hover:text-primary transition">Twitter</a>
+                                    <a href="https://www.instagram.com/0xrafi" target="_blank" class="text-gray-400 hover:text-primary transition">Instagram</a>
                                 </div>
-                                <div>
-                                    <p class="text-sm text-gray-400">Email me at</p>
-                                    <a href="mailto:hello@rafiportfolio.com" class="text-lg font-medium hover:text-cyan-400 transition">hello@rafiportfoli
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-primary bg-opacity-20 flex items-center justify-center mr-4 mt-1">
+                                <span class="text-primary">📍</span>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Location</h4>
+                                <p class="text-gray-400">Silicon Valley, CA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-dark">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <a href="#" class="text-2xl font-bold font-heading gradient-text">Rafi.</a>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#home" class="text-gray-400 hover:text-primary transition">Home</a>
+                    <a href="#about" class="text-gray-400 hover:text-primary transition">About</a>
+                    <a href="#skills" class="text-gray-400 hover:text-primary transition">Skills</a>
+                    <a href="#projects" class="text-gray-400 hover:text-primary transition">Projects</a>
+                    <a href="#contact" class="text-gray-400 hover:text-primary transition">Contact</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2025 Rafi. All rights reserved. Built with passion in Silicon Valley.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            menuBtn.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuBtn.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
+        // Scroll animations
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animation-fade-in, .animation-slide-up');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Run once on page load
+        animateOnScroll();
+        
+        // Run on scroll
+        window.addEventListener('scroll', animateOnScroll);
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
