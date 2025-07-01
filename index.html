@@ -3,403 +3,678 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saddam | Web Developer & Designer | Silicon Valley</title>
-    <meta name="description" content="Innovative web developer creating digital experiences with cutting-edge technologies. Based in Silicon Valley.">
-    
-    <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="Saddam | Web Developer Portfolio">
-    <meta property="og:description" content="Crafting the future with code. Web developer specializing in modern web technologies.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://saddam.dev">
-    <meta property="og:image" content="https://saddam.dev/social-preview.jpg">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="https://i.ibb.co/wFLSmtKN/Picsart-25-06-20-18-18-20-681.png">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {
-                            DEFAULT: '#6366f1',
-                            dark: '#4f46e5'
-                        },
-                        dark: {
-                            DEFAULT: '#0f172a',
-                            light: '#1e293b'
-                        },
-                        light: '#f8fafc'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        heading: ['Space Grotesk', 'sans-serif']
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'fade-in': 'fadeIn 1s ease-out forwards',
-                        'slide-up': 'slideUp 0.8s ease-out forwards'
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' }
-                        },
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' }
-                        },
-                        slideUp: {
-                            '0%': { opacity: '0', transform: 'translateY(30px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' }
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    
+    <title>Appify Studio | Web Application Development</title>
     <style>
-        html {
-            scroll-behavior: smooth;
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            background-color: #020617;
-            color: #f8fafc;
-            font-family: 'Inter', sans-serif;
+            background-color: white;
+            color: black;
+            overflow-x: hidden;
         }
         
-        .gradient-text {
-            background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
-        .card-glass {
-            background: rgba(15, 23, 42, 0.7);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        /* Header Styles */
+        header {
+            padding: 30px 0;
+            position: fixed;
+            width: 100%;
+            background-color: white;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeInDown 1s ease;
         }
         
-        .skill-pill {
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .logo span {
+            color: #333;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            font-weight: 500;
             transition: all 0.3s ease;
-        }
-        
-        .skill-pill:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3);
-        }
-        
-        .project-card {
-            transition: all 0.3s ease;
-            transform-origin: center;
-        }
-        
-        .project-card:hover {
-            transform: scale(1.03);
-            box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.2);
-        }
-        
-        .nav-link {
             position: relative;
         }
         
-        .nav-link::after {
+        .nav-links a:after {
             content: '';
             position: absolute;
-            bottom: -2px;
-            left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, #6366f1, #a855f7);
+            background: black;
+            bottom: -5px;
+            left: 0;
             transition: width 0.3s ease;
         }
         
-        .nav-link:hover::after {
+        .nav-links a:hover:after {
             width: 100%;
         }
         
-        .hamburger {
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 600px;
+            animation: fadeInLeft 1s ease;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: black;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid black;
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: black;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: black;
+            margin-left: 15px;
+        }
+        
+        .btn-outline:hover {
+            background-color: black;
+            color: white;
+        }
+        
+        .hero-image {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50%;
+            animation: fadeInRight 1s ease;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 36px;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: black;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .about-text {
+            width: 50%;
+            animation: fadeInLeft 1s ease;
+        }
+        
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .stats {
+            width: 45%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            animation: fadeInRight 1s ease;
+        }
+        
+        .stat-item {
+            width: 45%;
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 30px 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
         }
         
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px);
+        .stat-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
         
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
+        .stat-item h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: black;
         }
         
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -6px);
+        .stat-item p {
+            font-size: 16px;
+            color: #555;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+        }
+        
+        .contact-content {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+        }
+        
+        .contact-info {
+            width: 40%;
+            animation: fadeInLeft 1s ease;
+        }
+        
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .info-item i {
+            width: 50px;
+            height: 50px;
+            background-color: #f9f9f9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 20px;
+        }
+        
+        .contact-form {
+            width: 55%;
+            animation: fadeInRight 1s ease;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: black;
+            outline: none;
+        }
+        
+        textarea.form-control {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: black;
+            color: white;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: inline-block;
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: white;
+            color: black;
+        }
+        
+        .copyright {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero-image {
+                width: 45%;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-text, .stats {
+                width: 100%;
+            }
+            
+            .stats {
+                margin-top: 50px;
+            }
+            
+            .contact-content {
+                flex-direction: column;
+            }
+            
+            .contact-info, .contact-form {
+                width: 100%;
+            }
+            
+            .contact-form {
+                margin-top: 50px;
+            }
         }
         
         @media (max-width: 768px) {
-            .mobile-menu {
-                transform: translateX(100%);
-                transition: transform 0.3s ease;
+            .nav-links {
+                display: none;
             }
             
-            .mobile-menu.active {
-                transform: translateX(0);
+            .hero {
+                text-align: center;
+                padding-top: 150px;
+            }
+            
+            .hero-content {
+                max-width: 100%;
+            }
+            
+            .hero-image {
+                position: relative;
+                width: 100%;
+                margin-top: 50px;
+                transform: none;
+                top: auto;
+                right: auto;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+            
+            .stat-item {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 28px;
             }
         }
     </style>
 </head>
-<body class="min-h-screen">
-    <!-- Navigation -->
-    <header class="fixed w-full z-50">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold font-heading gradient-text">Saddam.</a>
-            
-            <!-- Desktop Navigation -->
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#contact" class="nav-link">Contact</a>
-                <a href="#contact" class="px-4 py-2 bg-primary rounded-lg font-medium hover:bg-primary-dark transition">Hire Me</a>
-            </div>
-            
-            <!-- Mobile Menu Button -->
-            <button class="md:hidden hamburger flex flex-col justify-center items-center" id="menu-btn">
-                <span class="bg-light block w-6 h-0.5 mb-1.5 transition-all"></span>
-                <span class="bg-light block w-6 h-0.5 mb-1.5 transition-all"></span>
-                <span class="bg-light block w-6 h-0.5 transition-all"></span>
-            </button>
-        </nav>
-        
-        <!-- Mobile Menu -->
-        <div class="md:hidden mobile-menu fixed inset-0 bg-dark pt-24 px-6" id="mobile-menu">
-            <div class="flex flex-col space-y-6">
-                <a href="#home" class="text-xl py-2 border-b border-gray-800">Home</a>
-                <a href="#about" class="text-xl py-2 border-b border-gray-800">About</a>
-                <a href="#skills" class="text-xl py-2 border-b border-gray-800">Skills</a>
-                <a href="#projects" class="text-xl py-2 border-b border-gray-800">Projects</a>
-                <a href="#contact" class="text-xl py-2 border-b border-gray-800">Contact</a>
-                <a href="#contact" class="px-4 py-3 bg-primary rounded-lg font-medium text-center mt-4 hover:bg-primary-dark transition">Hire Me</a>
-            </div>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Appify <span>Studio</span></div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center pt-16">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center justify-between">
-                <div class="md:w-1/2 mb-12 md:mb-0">
-                    <h1 class="text-4xl md:text-6xl font-bold font-heading mb-6 leading-tight">
-                        <span class="gradient-text">Crafting Digital</span><br>
-                        <span>Experiences That</span><br>
-                        <span class="gradient-text">Inspire</span>
-                    </h1>
-                    <p class="text-lg text-gray-400 mb-8 max-w-lg">
-                        I'm Saddam, a web developer based in Silicon Valley, passionate about building innovative digital solutions that make an impact.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#projects" class="px-6 py-3 bg-primary rounded-lg font-medium hover:bg-primary-dark transition">View Work</a>
-                        <a href="#contact" class="px-6 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-primary hover:bg-opacity-10 transition">Contact Me</a>
-                    </div>
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Building Exceptional Web Applications</h1>
+                <p>With over 4 years of experience and 147 successful projects, we transform your ideas into powerful digital solutions that drive business growth.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn">Get Started</a>
+                    <a href="#about" class="btn btn-outline">Learn More</a>
                 </div>
-                <div class="md:w-1/2 flex justify-center">
-                    <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-primary to-purple-500 flex items-center justify-center animation-float">
-                        <div class="absolute inset-0 rounded-full bg-primary opacity-20 blur-xl"></div>
-                        <div class="relative z-10 text-8xl">👨‍💻</div>
-                    </div>
-                </div>
+            </div>
+            <div class="hero-image floating">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" fill="none" stroke="black" stroke-width="2">
+                    <rect x="50" y="50" width="400" height="400" rx="20" stroke-dasharray="10,5"/>
+                    <circle cx="250" cy="150" r="50" fill="black"/>
+                    <rect x="150" y="250" width="200" height="30" fill="black"/>
+                    <rect x="150" y="300" width="150" height="30" fill="black"/>
+                    <rect x="150" y="350" width="180" height="30" fill="black"/>
+                    <animateTransform attributeName="transform" type="rotate" from="0 250 250" to="5 250 250" dur="5s" repeatCount="indefinite" additive="sum"/>
+                    <animateTransform attributeName="transform" type="rotate" from="5 250 250" to="0 250 250" dur="5s" repeatCount="indefinite" additive="sum"/>
+                </svg>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-dark">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-12 md:mb-0 md:pr-12">
-                    <h2 class="text-3xl font-bold font-heading mb-6">
-                        <span class="gradient-text">About</span> Me
-                    </h2>
-                    <p class="text-gray-400 mb-6">
-                        Hello! I'm Saddam, a passionate web developer currently pursuing my B.Tech while working on exciting projects in Silicon Valley.
-                    </p>
-                    <p class="text-gray-400 mb-6">
-                        Originally from India, I've always been fascinated by how technology can transform ideas into reality. My journey in web development started when I built my first website at 16, and I've been hooked ever since.
-                    </p>
-                    <p class="text-gray-400 mb-8">
-                        When I'm not coding, you can find me exploring new coffee shops, reading tech blogs, or brainstorming my next big project.
-                    </p>
-                    <div class="flex items-center space-x-4">
-                        <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
-                            <span class="text-xl">🎓</span>
-                        </div>
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Transforming Ideas Into Digital Reality</h3>
+                    <p>Appify Studio is a premier web application development company with a proven track record of delivering high-quality solutions to clients worldwide.</p>
+                    <p>Our team of skilled developers and designers work collaboratively to create web applications that are not only visually stunning but also highly functional and user-friendly.</p>
+                    <p>We believe in building long-term relationships with our clients by delivering exceptional value and outstanding customer service.</p>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <h2>4+</h2>
+                        <p>Years Experience</p>
+                    </div>
+                    <div class="stat-item">
+                        <h2>147</h2>
+                        <p>Projects Completed</p>
+                    </div>
+                    <div class="stat-item">
+                        <h2>100%</h2>
+                        <p>Client Satisfaction</p>
+                    </div>
+                    <div class="stat-item">
+                        <h2>24/7</h2>
+                        <p>Support Available</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <!-- Service items would go here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="info-item">
+                        <i>📱</i>
                         <div>
-                            <h4 class="font-medium">B.Tech Student</h4>
-                            <p class="text-sm text-gray-400">Computer Science</p>
+                            <h4>Phone</h4>
+                            <p>+91 6003758426</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i>💬</i>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p>+91 8876001303</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i>✉️</i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@appifystudio.xyz</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i>👨‍💻</i>
+                        <div>
+                            <h4>GitHub</h4>
+                            <p>github.com/appifystudio</p>
                         </div>
                     </div>
                 </div>
-                <div class="md:w-1/2 grid grid-cols-2 gap-4">
-                    <div class="card-glass p-6 rounded-xl animation-fade-in" style="animation-delay: 0.1s;">
-                        <div class="text-4xl mb-4 gradient-text">3+</div>
-                        <h3 class="font-medium mb-2">Years Experience</h3>
-                        <p class="text-sm text-gray-400">Building web applications</p>
-                    </div>
-                    <div class="card-glass p-6 rounded-xl animation-fade-in" style="animation-delay: 0.2s;">
-                        <div class="text-4xl mb-4 gradient-text">20+</div>
-                        <h3 class="font-medium mb-2">Projects</h3>
-                        <p class="text-sm text-gray-400">Completed successfully</p>
-                    </div>
-                    <div class="card-glass p-6 rounded-xl animation-fade-in" style="animation-delay: 0.3s;">
-                        <div class="text-4xl mb-4 gradient-text">100%</div>
-                        <h3 class="font-medium mb-2">Passion</h3>
-                        <p class="text-sm text-gray-400">For technology & innovation</p>
-                    </div>
-                    <div class="card-glass p-6 rounded-xl animation-fade-in" style="animation-delay: 0.4s;">
-                        <div class="text-4xl mb-4 gradient-text">24/7</div>
-                        <h3 class="font-medium mb-2">Coffee Mode</h3>
-                        <p class="text-sm text-gray-400">Always brewing ideas</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="py-20">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold font-heading mb-4">
-                    My <span class="gradient-text">Skills</span>
-                </h2>
-                <p class="text-gray-400 max-w-2xl mx-auto">
-                    I've worked with a wide range of technologies in web development. Here are some of my core competencies.
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Frontend Skills -->
-                <div class="card-glass p-8 rounded-xl">
-                    <div class="flex items-center mb-6">
-                        <div class="w-10 h-10 rounded-full bg-primary bg-opacity-20 flex items-center justify-center mr-4">
-                            <span class="text-primary">🖥️</span>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
                         </div>
-                        <h3 class="text-xl font-heading font-medium">Frontend Development</h3>
-                    </div>
-                    <div class="flex flex-wrap gap-3">
-                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
-                            <span class="mr-2">⚛️</span> React
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" class="form-control" required>
                         </div>
-                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
-                            <span class="mr-2">🌿</span> Vue.js
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
                         </div>
-                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
-                            <span class="mr-2">📄</span> HTML5
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
                         </div>
-                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
-                            <span class="mr-2">🎨</span> CSS3
-                        </div>
-                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
-                            <span class="mr-2">⚡</span> JavaScript
-                        </div>
-                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
-                            <span class="mr-2">💅</span> Tailwind CSS
-                        </div>
-                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
-                            <span class="mr-2">📦</span> Bootstrap
-                        </div>
-                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
-                            <span class="mr-2">🅰️</span> Angular
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Backend Skills -->
-                <div class="card-glass p-8 rounded-xl">
-                    <div class="flex items-center mb-6">
-                        <div class="w-10 h-10 rounded-full bg-primary bg-opacity-20 flex items-center justify-center mr-4">
-                            <span class="text-primary">⚙️</span>
-                        </div>
-                        <h3 class="text-xl font-heading font-medium">Backend Development</h3>
-                    </div>
-                    <div class="flex flex-wrap gap-3">
-                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
-                            <span class="mr-2">🖥️</span> Node.js
-                        </div>
-                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
-                            <span class="mr-2">🚀</span> Express.js
-                        </div>
-                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
-                            <span class="mr-2">🐍</span> Python
-                        </div>
-                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
-                            <span class="mr-2">🐘</span> PHP
-                        </div>
-                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
-                            <span class="mr-2">🗄️</span> MySQL
-                        </div>
-                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
-                            <span class="mr-2">🍃</span> MongoDB
-                        </div>
-                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
-                            <span class="mr-2">🔥</span> Firebase
-                        </div>
-                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
-                            <span class="mr-2">☕</span> Java
-                        </div>
-                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
-                            <span class="mr-2">💎</span> Ruby on Rails
-                        </div>
-                        <div class="skill-pill px-4 py-2 bg-dark-light rounded-full flex items-center">
-                            <span class="mr-2">🐘</span> PostgreSQL
-                        </div>
-                    </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-dark">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold font-heading mb-4">
-                    Featured <span class="gradient-text">Projects</span>
-                </h2>
-                <p class="text-gray-400 max-w-2xl mx-auto">
-                    Here are some of my recent projects that showcase my skills and creativity.
-                </p>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">Appify Studio</div>
+            <div class="social-links">
+                <a href="#"><span>f</span></a>
+                <a href="#"><span>in</span></a>
+                <a href="#"><span>tw</span></a>
+                <a href="#"><span>git</span></a>
             </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="project-card card-glass rounded-xl overflow-hidden animation-slide-up" style="animation-delay: 0.1s;">
-                    <div class="h-48 bg-gradient-to-r from-primary to-purple-600 flex items-center justify-center">
-                        <span class="text-6xl">📚</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-heading font-medium mb-2">Edumark</h3>
-                        <p class="text-gray-400 mb-4">
-                            A dynamic platform revolutionizing education with interactive tools and resources.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="text-xs px-2 py-1 bg-dark-light rounded">React</span>
-                            <span class="text-xs px-2 py-1 bg-dark-light rounded">Node.js</span>
-                            <span class="text-xs px-2 py-1 bg-dark-light rounded">MongoDB</span>
-                        </div>
-                        <a href="#" class="text-primary font-medium hover:underline">View Project →</a>
-                    </div>
-                </div>
+            <p class="copyright">© 2023 Appify Studio. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
                 
-                <!-- Project 2 -->
-                <div class="project-card card-glass rounded-xl overflow-hidden animat
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.about-text, .stats, .contact-info, .contact-form');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if(elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateX(0)';
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
